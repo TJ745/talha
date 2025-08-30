@@ -2,7 +2,7 @@
 
 import ThemeToggle from "@/components/ThemeToggle";
 import { navLinks } from "@/data/navLinks";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Hero() {
   const [activePage, setActivePage] = useState("dashboard");

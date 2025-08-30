@@ -69,7 +69,7 @@ export default function CustomCursor() {
         transform: `translate(${position.x - size / 2}px, ${
           position.y - size / 2
         }px)`,
-        backgroundColor: "#fff", // always white!
+        backgroundColor: theme ? "#fff" : "", // always white!
       }}
     />
   );
