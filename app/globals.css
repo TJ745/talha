@@ -1,26 +1,123 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Hide default cursor globally */
+* {
+  cursor: none !important;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Preserve text cursor on inputs */
+input, textarea {
+  cursor: text !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+
+
+
+/* Glitch Effect */
+
+.glitch {
+  position: relative;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  animation: glitch-skew 1s infinite linear alternate-reverse;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: black;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
 }
+
+/* change from 2px to 20px */
+.glitch::before {
+  left: 4px; 
+  text-shadow: -2px 0  #ff00c1;
+  animation: glitchTop 1.5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -4px;
+  text-shadow: -2px 0  #00fff9;
+  animation: glitchBottom 1.2s infinite linear alternate-reverse;
+}
+
+@keyframes glitchTop {
+  0% { clip: rect(20px, 9999px, 60px, 0); }
+  10% { clip: rect(80px, 9999px, 140px, 0); }
+  20% { clip: rect(10px, 9999px, 50px, 0); }
+  30% { clip: rect(100px, 9999px, 160px, 0); }
+  40% { clip: rect(30px, 9999px, 80px, 0); }
+  50% { clip: rect(60px, 9999px, 120px, 0); }
+  60% { clip: rect(0px, 9999px, 40px, 0); }
+  70% { clip: rect(90px, 9999px, 130px, 0); }
+  80% { clip: rect(20px, 9999px, 70px, 0); }
+  100% { clip: rect(50px, 9999px, 100px, 0); }
+}
+
+@keyframes glitchBottom {
+  0% { clip: rect(10px, 9999px, 40px, 0); }
+  15% { clip: rect(60px, 9999px, 100px, 0); }
+  30% { clip: rect(20px, 9999px, 70px, 0); }
+  45% { clip: rect(90px, 9999px, 130px, 0); }
+  60% { clip: rect(40px, 9999px, 90px, 0); }
+  75% { clip: rect(0px, 9999px, 30px, 0); }
+  90% { clip: rect(70px, 9999px, 120px, 0); }
+  100% { clip: rect(10px, 9999px, 60px, 0); }
+}
+
+/* Jitter effect */
+@keyframes glitch-skew {
+  0% { transform: skew(0deg); }
+  20% { transform: skew(5deg); }
+  40% { transform: skew(-3deg); }
+  60% { transform: skew(2deg); }
+  80% { transform: skew(-5deg); }
+  100% { transform: skew(0deg); }
+}
+
+
+/* VHS noise texture */
+.noise {
+  background: url(../public/images/noise.png) repeat;
+  opacity: 0.08;
+  animation: noise-move 0.3s infinite;
+  z-index: 20;
+}
+
+@keyframes noise-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+/* CRT scanlines */
+.scanlines {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.05) 0px,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: overlay;
+  opacity: 0.15;
+  animation: flicker 1.5s infinite;
+  z-index: 30;
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 0.15; }
+  20%, 24%, 55% { opacity: 0.05; }
+}
+
+
