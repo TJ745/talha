@@ -2,6 +2,7 @@
 
 import ThemeToggle from "@/components/ThemeToggle";
 import { navLinks } from "@/data/navLinks";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Hero() {
@@ -14,7 +15,7 @@ export default function Hero() {
         <div>
           {/* User Info */}
           <div className="flex flex-col items-center mb-2">
-            <img
+            <Image
               src="/images/avatar.jpg"
               alt="User"
               className="w-30 h-30 rounded-full mb-8"
@@ -41,6 +42,7 @@ export default function Hero() {
             {navLinks.map((link) => {
               return (
                 <button
+                  key={link.label}
                   className={`p-2 rounded ${
                     activePage === link.label
                       ? "bg-gray-600"
