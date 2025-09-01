@@ -1,39 +1,38 @@
 export const navLinks = [
   {
     id: 1,
-    url: "#home",
+    href: "/hero",
     label: "Home",
   },
   {
     id: 2,
-    url: "#about",
+    href: "/about",
     label: "About",
   },
-  {
-    id: 3,
-    url: "#achievements",
-    label: "Achievements",
-  },
+
   {
     id: 4,
-    url: "#projects",
+    href: "/projects",
     label: "Projects",
   },
   {
     id: 5,
-    url: "#dashboard",
+    href: "/dashboard",
     label: "Dashboard",
-  },{
+  },
+  {
     id: 6,
-    url: "#chatroom",
+    href: "/chatroom",
     label: "Chat Room",
-  },{
+  },
+  {
     id: 7,
-    url: "#contact",
+    href: "/contact",
     label: "Contact",
-  },{
+  },
+  {
     id: 8,
-    url: "#ai-assistant",
+    href: "/ai-assistant",
     label: "AI Assistant",
   },
 ];
