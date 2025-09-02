@@ -18,13 +18,13 @@ export const metadata: Metadata = {
   description: "My personal portfolio built with dedication and passion.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
+    <html>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#EDEDED] text-[#1E1E1E] dark:bg-[#1C1B22] dark:text-white transition-colors duration-300 cursor-none`}
       >

@@ -62,7 +62,7 @@ export default function CustomCursor() {
 
   return (
     <div
-      className={`fixed top-0 left-0 pointer-events-none z-50 rounded-full transition-all duration-150 ease-out mix-blend-difference`}
+      className={`hidden md:block fixed top-0 left-0 pointer-events-none z-50 rounded-full transition-all duration-150 ease-out mix-blend-difference`}
       style={{
         width: `${size}px`,
         height: `${size}px`,

@@ -19,8 +19,30 @@ export default function Music() {
 
   return (
     <div>
-      <audio ref={audioRef} src="/music.mp3" loop />
-      <button onClick={togglePlay}>{isPlaying ? "Pause" : "Play"}</button>
+      <audio ref={audioRef} src="music/relaxing.mp3" loop />
+      <button
+        onClick={togglePlay}
+        className="flex gap-1 items-end h-8 w-8 cursor-pointer"
+        aria-label="Toggle Sound"
+      >
+        {[0, 1, 2, 3].map((bar) => (
+          <div
+            key={bar}
+            className="relative w-1 h-full bg-gray-700 rounded-sm overflow-hidden"
+          >
+            <span
+              className={`
+              absolute bottom-0 left-0 w-full bg-green-300
+              ${isPlaying ? "animate-soundbar" : ""}
+            `}
+              style={{
+                animationDelay: `${bar * 0.15}s`,
+                height: isPlaying ? "100%" : "30%",
+              }}
+            ></span>
+          </div>
+        ))}
+      </button>
     </div>
   );
 }

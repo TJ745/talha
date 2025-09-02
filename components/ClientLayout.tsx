@@ -10,6 +10,7 @@ import Link from "next/link";
 import { HiMenu, HiX } from "react-icons/hi";
 import { usePathname } from "next/navigation";
 import Music from "./Music";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ClientLayout({
   children,
@@ -18,6 +19,8 @@ export default function ClientLayout({
 }) {
   const [loading, setLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
+  const [locale, setLocale] = useState<"en" | "ar">("en");
+  const [messages, setMessages] = useState<{ hello: string }>({ hello: "" });
   const pathname = usePathname();
 
   useEffect(() => {
@@ -25,6 +28,12 @@ export default function ClientLayout({
     const timer = setTimeout(() => setLoading(false), 2000);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    import(`../app/messages/${locale}.json`).then((mod) =>
+      setMessages(mod.default)
+    );
+  }, [locale]);
 
   if (loading) {
     return <Loading />;
@@ -34,7 +43,10 @@ export default function ClientLayout({
     <>
       {/* Custom Cursor */}
       <CustomCursor />
-      <div className="flex  max-w-7xl mx-auto h-screen">
+      <div
+        className="flex  max-w-7xl mx-auto h-screen"
+        dir={locale === "ar" ? "rtl" : "ltr"}
+      >
         {/* Desktop View */}
         {/* Left Sidebar */}
         <aside className="hidden w-80 p-4  lg:flex flex-col justify-between pt-8 border-r border-gray-800 overflow-y-auto">
@@ -56,13 +68,51 @@ export default function ClientLayout({
 
             {/* Language & Theme */}
             <div className="flex items-center justify-between p-4 ">
-              <button className=" mb-2 p-2 bg-gray-700 rounded hover:bg-gray-600">
-                Language
+              <button
+                onClick={() => setLocale(locale === "en" ? "ar" : "en")}
+                className="relative w-8 h-8 overflow-hidden border border-gray-400 rounded-full shadow-md"
+              >
+                {/* {locale === "en" ? "Switch to AR" : "Switch to EN"} */}
+                <AnimatePresence mode="wait">
+                  {locale === "en" ? (
+                    <motion.div
+                      key="en"
+                      initial={{ scale: 0.5, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      exit={{ scale: 0.5, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="w-full h-full"
+                    >
+                      <Image
+                        src="/flags/uk.svg"
+                        alt="English"
+                        width={48}
+                        height={48}
+                        className="object-cover w-full h-full"
+                      />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="ar"
+                      initial={{ scale: 0.5, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      exit={{ scale: 0.5, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="w-full h-full"
+                    >
+                      <Image
+                        src="/flags/sa.svg"
+                        alt="Arabic"
+                        width={48}
+                        height={48}
+                        className="object-cover w-full h-full"
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </button>
               <ThemeToggle />
-              <button className=" mb-2 p-2 bg-gray-700 rounded hover:bg-gray-600">
-                Music
-              </button>
+
               <Music />
             </div>
             <hr className="mb-2" />
@@ -154,7 +204,7 @@ export default function ClientLayout({
         </aside>
 
         {/* Right Content */}
-        <main className="lg:flex-1  p-6 overflow-auto mt-16 lg:mt-0">
+        <main className="lg:flex-1 w-full overflow-auto mt-16 lg:mt-0">
           {children}
         </main>
       </div>
