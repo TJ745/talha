@@ -44,7 +44,7 @@ export default function SparklesCore({
   useEffect(() => {
     if (!theme) return; // wait until theme is known
 
-    const canvas = canvasRef.current;
+    const canvas = canvasRef.current!;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -75,12 +75,12 @@ export default function SparklesCore({
 
     let raf: number;
     function animate() {
-      ctx.clearRect(0, 0, width, height);
+      ctx!.clearRect(0, 0, width, height);
       particles.forEach((p) => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = p.c;
-        ctx.fill();
+        ctx!.beginPath();
+        ctx!.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx!.fillStyle = p.c;
+        ctx!.fill();
 
         p.x += p.vx;
         p.y += p.vy;
