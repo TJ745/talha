@@ -11,6 +11,7 @@ import { HiMenu, HiX } from "react-icons/hi";
 import { usePathname } from "next/navigation";
 import Music from "./Music";
 import { motion, AnimatePresence } from "framer-motion";
+import { CgClose } from "react-icons/cg";
 
 export default function ClientLayout({
   children,
@@ -137,7 +138,7 @@ export default function ClientLayout({
         </aside>
 
         {/* Mobile Top Navbar */}
-        <div className="lg:hidden fixed top-0 left-0 right-0 bg-gray-900 text-white p-4 flex items-center justify-between z-20">
+        <div className="lg:hidden fixed top-0 left-0 right-0 dark:bg-black dark:text-white  p-4 flex items-center justify-between z-20">
           {/* Left: Profile */}
           <div className="flex items-center space-x-2">
             <Image
@@ -151,56 +152,93 @@ export default function ClientLayout({
           </div>
 
           {/* Middle: Buttons */}
-          <div className="flex space-x-4">
-            <button className="px-2 py-1 bg-gray-700 rounded-lg text-sm">
-              Lang
+          <div className="flex space-x-7">
+            <button
+              onClick={() => setLocale(locale === "en" ? "ar" : "en")}
+              className="relative w-8 h-8 overflow-hidden border border-gray-400 rounded-full shadow-md"
+            >
+              {/* {locale === "en" ? "Switch to AR" : "Switch to EN"} */}
+              <AnimatePresence mode="wait">
+                {locale === "en" ? (
+                  <motion.div
+                    key="en"
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.5, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-full h-full"
+                  >
+                    <Image
+                      src="/flags/uk.svg"
+                      alt="English"
+                      width={24}
+                      height={24}
+                      className="object-cover w-full h-full"
+                    />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="ar"
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.5, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-full h-full"
+                  >
+                    <Image
+                      src="/flags/sa.svg"
+                      alt="Arabic"
+                      width={24}
+                      height={24}
+                      className="object-cover w-full h-full"
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </button>
-            <button className="px-2 py-1 bg-gray-700 rounded-lg text-sm">
-              Music
-            </button>
+            <Music />
             <ThemeToggle />
           </div>
 
           {/* Right: Burger */}
           <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <HiX size={28} /> : <HiMenu size={28} />}
+            {/* {isOpen ? <HiX size={28} /> : <HiMenu size={28} />} */}
+            <HiMenu size={28} />
           </button>
         </div>
 
         {/* Mobile Sidebar (slide-in) */}
         <aside
-          className={`fixed top-0 left-0 h-full w-full bg-gray-500 p-4 transform transition-transform duration-300 z-10 ${
+          className={`fixed top-0 left-0 h-full w-full transform transition-transform duration-300 z-50 ${
             isOpen ? "translate-x-0" : "-translate-x-full"
           } lg:hidden`}
         >
-          <nav>
-            <ul className="space-y-4 mt-16">
-              <li className="border-b pb-2">
-                <button
+          <div
+            className={`fixed justify-center flex flex-col h-full transform transition-all duration-500 delay-300 w-full bg-black z-[1050] space-y-6 ${isOpen}`}
+          >
+            {navLinks.map((link) => {
+              return (
+                <Link
+                  href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="w-full text-left"
+                  key={link.href}
+                  className="justify-center flex items-center"
                 >
-                  Dashboard
-                </button>
-              </li>
-              <li className="border-b pb-2">
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="w-full text-left"
-                >
-                  Profile
-                </button>
-              </li>
-              <li className="border-b pb-2">
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="w-full text-left"
-                >
-                  Settings
-                </button>
-              </li>
-            </ul>
-          </nav>
+                  <p
+                    className={`text-white w-fit text-3xl uppercase font-bold border-b-[1.5px] pb-1 border-gray-400 sm:text-[30px] cursor-pointer`}
+                  >
+                    {link.label}
+                  </p>
+                </Link>
+              );
+            })}
+            {/* Close Icon */}
+            <CgClose
+              // onClick={closeNav}
+              onClick={() => setIsOpen(false)}
+              className="absolute top-4 right-4 text-white w-8 h-8"
+            />
+          </div>
         </aside>
 
         {/* Right Content */}

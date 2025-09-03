@@ -32,7 +32,7 @@ export const navLinks = [
   },
   {
     id: 8,
-    href: "/ai-assistant",
+    href: "/ai",
     label: "AI Assistant",
   },
 ];
