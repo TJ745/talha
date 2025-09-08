@@ -86,7 +86,10 @@ function Contact() {
   };
 
   return (
-    <div className="pt-8 h-screen">
+    <section
+      id="contact"
+      className="min-h-screen flex flex-col items-center justify-center"
+    >
       <motion.h1
         className="text-2xl sm:text-3xl text-center text-gray-800 dark:text-white font-bold uppercase"
         initial={{ opacity: 0, y: -20 }}
@@ -242,7 +245,7 @@ function Contact() {
           </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

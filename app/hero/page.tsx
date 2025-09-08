@@ -18,7 +18,10 @@ import {
 
 function Hero() {
   return (
-    <div className="relative h-screen w-full overflow-hidden dark:bg-black bg-white transition-colors">
+    <section
+      id="hero"
+      className="relative h-screen w-full overflow-hidden dark:bg-black bg-white transition-colors"
+    >
       <SparklesCore
         className={`w-full h-full`}
         particleCount={250}
@@ -108,7 +111,7 @@ function Hero() {
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

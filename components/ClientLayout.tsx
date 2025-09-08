@@ -49,26 +49,38 @@ export default function ClientLayout({
         dir={locale === "ar" ? "rtl" : "ltr"}
       >
         {/* Desktop View */}
-        {/* Left Sidebar */}
-        <aside className="hidden w-80 p-4  lg:flex flex-col justify-between pt-8 border-r border-gray-800 overflow-y-auto">
-          <div>
+
+        <div className="w-full border-b border-gray-800 bg-black/80 backdrop-blur fixed top-0 z-50">
+          <div className="flex items-center justify-between px-4 py-3 lg:px-8">
             {/* User Info */}
-            <div className="flex flex-col items-center ">
-              <Image
-                src="/images/avatar.jpg"
-                width={100}
-                height={100}
-                alt="User"
-                className="w-30 h-30 rounded-full mb-4"
-              />
-              <span className="text-2xl">Talha Jamil</span>
+            <div className="flex items-center space-x-3">
+              <span className="text-2xl font-semibold uppercase">
+                Talha Jamil
+              </span>
               <span className="font-light text-gray-500 text-sm">
                 @talhajamil
               </span>
             </div>
 
+            {/* Navigation Buttons */}
+            <nav className="hidden lg:flex space-x-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`px-3 py-1 rounded-md ${
+                    pathname === link.href
+                      ? "bg-gray-700 text-white"
+                      : "hover:bg-gray-800 text-gray-300"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+
             {/* Language & Theme */}
-            <div className="flex items-center justify-between p-4 ">
+            <div className="flex items-center space-x-4">
               <button
                 onClick={() => setLocale(locale === "en" ? "ar" : "en")}
                 className="relative w-8 h-8 overflow-hidden border border-gray-400 rounded-full shadow-md"
@@ -116,95 +128,15 @@ export default function ClientLayout({
 
               <Music />
             </div>
-            <hr className="mb-2" />
-            {/* Navigation Buttons */}
-            <nav className="flex flex-col space-y-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`p-2 rounded ${
-                    pathname === link.href ? "bg-gray-600" : "hover:bg-gray-700"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
+            <div className="lg:hidden">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-gray-300 text-2xl"
+              >
+                {isOpen ? <HiX /> : <HiMenu />}
+              </button>
+            </div>
           </div>
-          <div className="text-center text-sm text-gray-400">
-            <hr className="mb-4" />© 2025 Your Company
-          </div>
-        </aside>
-
-        {/* Mobile Top Navbar */}
-        <div className="lg:hidden fixed top-0 left-0 right-0 dark:bg-black dark:text-white  p-4 flex items-center justify-between z-20">
-          {/* Left: Profile */}
-          <div className="flex items-center space-x-2">
-            <Image
-              width={32}
-              height={32}
-              src="/images/avatar.jpg" // replace with your image
-              alt="Profile"
-              className="w-8 h-8 rounded-full border border-white"
-            />
-            <span className="font-medium">Talha Jamil</span>
-          </div>
-
-          {/* Middle: Buttons */}
-          <div className="flex space-x-7">
-            <button
-              onClick={() => setLocale(locale === "en" ? "ar" : "en")}
-              className="relative w-8 h-8 overflow-hidden border border-gray-400 rounded-full shadow-md"
-            >
-              {/* {locale === "en" ? "Switch to AR" : "Switch to EN"} */}
-              <AnimatePresence mode="wait">
-                {locale === "en" ? (
-                  <motion.div
-                    key="en"
-                    initial={{ scale: 0.5, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    exit={{ scale: 0.5, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="w-full h-full"
-                  >
-                    <Image
-                      src="/flags/uk.svg"
-                      alt="English"
-                      width={24}
-                      height={24}
-                      className="object-cover w-full h-full"
-                    />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="ar"
-                    initial={{ scale: 0.5, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    exit={{ scale: 0.5, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="w-full h-full"
-                  >
-                    <Image
-                      src="/flags/sa.svg"
-                      alt="Arabic"
-                      width={24}
-                      height={24}
-                      className="object-cover w-full h-full"
-                    />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </button>
-            <Music />
-            <ThemeToggle />
-          </div>
-
-          {/* Right: Burger */}
-          <button onClick={() => setIsOpen(!isOpen)}>
-            {/* {isOpen ? <HiX size={28} /> : <HiMenu size={28} />} */}
-            <HiMenu size={28} />
-          </button>
         </div>
 
         {/* Mobile Sidebar (slide-in) */}
@@ -242,7 +174,7 @@ export default function ClientLayout({
         </aside>
 
         {/* Right Content */}
-        <main className="lg:flex-1 w-full overflow-auto mt-16 lg:mt-0">
+        <main className="lg:flex-1 w-full overflow-auto mt-16 lg:mt-0 scroll-smooth">
           {children}
         </main>
       </div>

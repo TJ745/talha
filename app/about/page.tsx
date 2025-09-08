@@ -90,7 +90,10 @@ import Image from "next/image";
 
 function About() {
   return (
-    <div className="h-screen">
+    <section
+      id="about"
+      className="min-h-screen flex items-center justify-center"
+    >
       <div className="container pt-6">
         <div className="relative w-full h-full">
           <div className="flex justify-center items-center flex-col mb-8 ">
@@ -140,7 +143,7 @@ function About() {
           <AboutMe />
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
