@@ -57,19 +57,20 @@ export default function CustomCursor() {
     };
   }, []);
 
-  const baseSize = isHovering ? 70 : 35;
-  const size = isClicked ? baseSize * 1.6 : baseSize;
+  const baseSize = isHovering ? 60 : 30;
+  const size = isClicked ? baseSize * 1.5 : baseSize;
 
   return (
     <div
-      className={`hidden md:block fixed top-0 left-0 pointer-events-none z-50 rounded-full transition-all duration-150 ease-out mix-blend-difference`}
+      className={`hidden lg:block fixed top-0 left-0 pointer-events-none z-[9999] rounded-full transition-all duration-150 ease-out mix-blend-difference`}
       style={{
         width: `${size}px`,
         height: `${size}px`,
         transform: `translate(${position.x - size / 2}px, ${
           position.y - size / 2
-        }px)`,
-        backgroundColor: theme ? "#fff" : "", // always white!
+        }px) scale(${isClicked ? 0.9 : 1})`,
+        borderRadius: "50%",
+        backgroundColor: theme ? "#fff" : "",
       }}
     />
   );
