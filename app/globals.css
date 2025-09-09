@@ -165,7 +165,7 @@ textarea {
 
 /* VHS noise texture */
 .noise {
-  background: url(../public/images/noise.png) repeat;
+  /* background: url(../public/images/noise.png) repeat; */
   opacity: 0.08;
   animation: noise-move 0.3s infinite;
   z-index: 20;

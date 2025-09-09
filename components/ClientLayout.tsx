@@ -21,7 +21,7 @@ export default function ClientLayout({
   const [loading, setLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [locale, setLocale] = useState<"en" | "ar">("en");
-  const [messages, setMessages] = useState<{ hello: string }>({ hello: "" });
+  // const [messages, setMessages] = useState<{ hello: string }>({ hello: "" });
   const pathname = usePathname();
 
   useEffect(() => {
@@ -30,11 +30,11 @@ export default function ClientLayout({
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    import(`../app/messages/${locale}.json`).then((mod) =>
-      setMessages(mod.default)
-    );
-  }, [locale]);
+  // useEffect(() => {
+  //   import(`../app/messages/${locale}.json`).then((mod) =>
+  //     setMessages(mod.default)
+  //   );
+  // }, [locale]);
 
   if (loading) {
     return <Loading />;
@@ -45,7 +45,7 @@ export default function ClientLayout({
       {/* Custom Cursor */}
       <CustomCursor />
       <div
-        className="flex  max-w-7xl mx-auto h-screen"
+        className=" max-w-full mx-auto h-screen "
         dir={locale === "ar" ? "rtl" : "ltr"}
       >
         {/* Desktop View */}

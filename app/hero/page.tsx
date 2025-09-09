@@ -20,7 +20,7 @@ function Hero() {
   return (
     <section
       id="hero"
-      className="relative h-screen w-full overflow-hidden dark:bg-black bg-white transition-colors"
+      className="relative min-h-screen w-full overflow-hidden dark:bg-black bg-white transition-colors"
     >
       <SparklesCore
         className={`w-full h-full`}
@@ -53,7 +53,7 @@ function Hero() {
 
         <div className="mt-12 relative z-10 flex gap-4 items-center justify-center">
           <Link
-            href="/contact"
+            href="#contact"
             className="px-4 py-2 rounded-full border-2  dark:border-white border-black flex items-center"
           >
             Hire Me <FaArrowRightLong className="ml-2" />

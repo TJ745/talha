@@ -12,7 +12,7 @@ const projects = [
   {
     title: "E-Commerce Platform",
     description: "Fullstack web app with Next.js, Supabase & Stripe.",
-    image: "/projects/ecommerce.jpg",
+    image: "/projects/file.svg",
     link: "https://yourproject1.com",
     source: "https://github.com/yourrepo1",
     category: "Web",
@@ -22,7 +22,7 @@ const projects = [
   {
     title: "Mobile Game App",
     description: "React Native multiplayer game with Supabase backend.",
-    image: "/projects/game.jpg",
+    image: "/projects/file.svg",
     link: "https://yourproject2.com",
     source: "https://github.com/yourrepo2",
     category: "Mobile",
@@ -32,7 +32,7 @@ const projects = [
   {
     title: "Portfolio Website",
     description: "Minimal personal portfolio built with Next.js & Tailwind.",
-    image: "/projects/portfolio.jpg",
+    image: "/projects/file.svg",
     link: "https://yourportfolio.com",
     source: "https://github.com/yourrepo3",
     category: "Web",
@@ -42,7 +42,7 @@ const projects = [
   {
     title: "AI Chatbot",
     description: "Custom AI assistant using OpenAI & LangChain.",
-    image: "/projects/chatbot.jpg",
+    image: "/projects/file.svg",
     link: "https://yourproject3.com",
     source: "https://github.com/yourrepo4",
     category: "AI",
@@ -52,7 +52,7 @@ const projects = [
   {
     title: "Analytics Dashboard",
     description: "Beautiful dashboard with Next.js & D3.js.",
-    image: "/projects/dashboard.jpg",
+    image: "/projects/file.svg",
     link: "https://yourproject4.com",
     source: "https://github.com/yourrepo5",
     category: "Dashboard",
