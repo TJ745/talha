@@ -22,7 +22,7 @@ export default function Music() {
       <audio ref={audioRef} src="music/relaxing.mp3" loop />
       <button
         onClick={togglePlay}
-        className="flex gap-1 items-end h-8 w-8 cursor-pointer"
+        className="flex gap-1 items-end h-6 w-6 cursor-pointer"
         aria-label="Toggle Sound"
       >
         {[0, 1, 2, 3].map((bar) => (

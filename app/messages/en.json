@@ -1,10 +1,53 @@
 {
-  "hello": "Hello World",
-  "home": "Home",
-  "about": "About Me",
-  "contact": "Contact",
-  "projects": "Projects",
-  "resume": "Resume",
-  "dashboard": "Dashboard",
-  "language": "Language"
+  "Nav": {
+    "Logo": "Talha Jamil",
+    "Home": "Home",
+    "About": "About Me",
+    "Projects": "Projects",
+    "Contact": "Contact"
+  },
+  "Hero": {
+    "greeting": "Hi, I'm",
+    "name": "Talha Jamil",
+    "role": "Fullstack Developer",
+    "hireMe": "Hire Me",
+    "downloadCV": "Download CV",
+    "typewriter": [
+      "I craft modern web experiences ✨",
+      "I design clean and user-friendly interfaces 🎨",
+      "I make ideas come alive with code 💻",
+      "I turn pixels into responsive designs 📱",
+      "I love bringing UX/UI to life 🖌️",
+      "I build fast, beautiful, and interactive apps ⚡",
+      "Design + Code = My happy place 😍",
+      "I create digital products that people love ❤️",
+      "Frontend development makes me happier 🌈",
+      "I solve problems with creativity & technology 🚀"
+    ]
+  },
+  "About": {
+    "title": "About Me",
+    "subtitle": "What I do",
+    "description": [
+      "I’m Talha Jamil, a Fullstack Developer who loves crafting digital experiences that feel smooth, modern, and engaging. ",
+      "From sleek web platforms with React, Next.js, and TailwindCSS to powerful mobile apps with React Native, I bring ideas to life with clean code and creative design. ",
+      "On the backend, I use Node.js, Supabase, and APIs to build secure, scalable, and reliable systems. ",
+      "Blending UI/UX design thinking with performance-focused development, I make products that not only look great but also work flawlessly. ",
+      "I enjoy turning complex ideas into simple, intuitive solutions that deliver real value. ",
+      "If you’re looking for someone who can handle the entire stack while keeping users at the center, I’m ready to collaborate."
+    ],
+    "closing": "Best Regards,"
+  },
+  "Contact": {
+    "title": "Let's Work Together",
+    "subtitle1": "Looking for a passionate Fullstack Developer who can build clean,        responsive, and user-friendly web and mobile applications — from        frontend design to backend architecture?",
+    "subtitle2": "Whether it’s freelance work, collaboration, or a full-time role — I’d love to connect and help bring your ideas to life!",
+    "phone": "Phone:",
+    "email": "Email:",
+    "follow": "Follow Me"
+  },
+  "Footer": {
+    "title": "Talha Jamil. All rights reserved.",
+    "subtitle": "Made with ❤️ using Next.js & Tailwind CSS"
+  }
 }
