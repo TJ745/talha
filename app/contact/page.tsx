@@ -52,16 +52,20 @@ function Contact({ locale }: ContactProps) {
         {t("subtitle2")}
       </motion.p>
       <div className="w-full flex justify-center ">
-        <div className="w-full max-w-4xl flex flex-col  items-start gap-12 px-6">
+        <div className="w-full max-w-6xl flex flex-col lg:flex-row items-start gap-12 px-6">
           <motion.div
-            className="w-full block px-8 py-10"
+            className="w-full lg:w-1/2 block px-8 py-10"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: false }}
           >
             <h2 className="text-2xl font-semibold mb-6">Contact Details</h2>
-
+            <p className="mb-4">
+              <strong>{t("location")}</strong>
+              <br />
+              {t("locationValue")}
+            </p>
             <p className="mb-4">
               <strong>{t("phone")}</strong>
               <br />
@@ -72,42 +76,49 @@ function Contact({ locale }: ContactProps) {
               <br />
               talha_mughalz@hotmail.com
             </p>
-            <div className="mt-6">
-              <h3 className="text-xl font-semibold mb-3">{t("follow")}</h3>
-              <div className="flex gap-4">
-                <Link
-                  href="/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gray-200 transition hover:bg-blue-600 bg-stone-400 dark:bg-zinc-800 rounded-xl p-2 text-white"
-                >
-                  <FaFacebookF className="text-2xl" />
-                </Link>
-                <Link
-                  href="/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gray-200 transition hover:bg-rose-600 bg-stone-400 dark:bg-zinc-800 rounded-xl p-2 text-white"
-                >
-                  <FaInstagram className="text-2xl" />
-                </Link>{" "}
-                <Link
-                  href="/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gray-200 transition hover:bg-yellow-600 bg-zinc-800 rounded-xl p-2 text-white"
-                >
-                  <FaSnapchat className="text-2xl" />
-                </Link>{" "}
-                <Link
-                  href="/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gray-200 transition hover:bg-gray-900 bg-stone-400 dark:bg-zinc-800 rounded-xl p-2 text-white"
-                >
-                  <FaTiktok className="text-2xl" />
-                </Link>
-              </div>
+          </motion.div>
+          {/* Right Side */}
+          <motion.div
+            className="w-full lg:w-1/2 block py-10"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: false }}
+          >
+            <h3 className="text-xl font-semibold mb-3">{t("follow")}</h3>
+            <div className="flex gap-4">
+              <Link
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-200 transition hover:bg-blue-600 bg-stone-400 dark:bg-zinc-800 rounded-xl p-2 text-white"
+              >
+                <FaFacebookF className="text-2xl" />
+              </Link>
+              <Link
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-200 transition hover:bg-rose-600 bg-stone-400 dark:bg-zinc-800 rounded-xl p-2 text-white"
+              >
+                <FaInstagram className="text-2xl" />
+              </Link>{" "}
+              <Link
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-200 transition hover:bg-yellow-600 bg-zinc-800 rounded-xl p-2 text-white"
+              >
+                <FaSnapchat className="text-2xl" />
+              </Link>{" "}
+              <Link
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-200 transition hover:bg-gray-900 bg-stone-400 dark:bg-zinc-800 rounded-xl p-2 text-white"
+              >
+                <FaTiktok className="text-2xl" />
+              </Link>
             </div>
           </motion.div>
         </div>

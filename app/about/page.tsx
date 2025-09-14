@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import Resume from "@/components/Resume";
 
 interface LocaleProps {
   locale: "en" | "ar";
@@ -13,7 +14,7 @@ function About({ locale }: LocaleProps) {
   return (
     <section
       id="about"
-      className="relative w-full py-12  flex flex-col items-center justify-center"
+      className="relative w-full py-12 flex flex-col items-center justify-center"
     >
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center items-center flex-col mb-8 ">
@@ -42,6 +43,7 @@ function About({ locale }: LocaleProps) {
             </div>
           </div>
         </div>
+        <Resume />
       </div>
     </section>
   );
