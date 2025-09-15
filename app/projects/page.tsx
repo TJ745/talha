@@ -5,6 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
+interface LocaleProps {
+  locale: "en" | "ar";
+}
+
 const categories = ["All", "Web", "Mobile", "AI", "Dashboard"];
 
 // Example projects
@@ -61,7 +65,7 @@ const projects = [
   },
 ];
 
-export default function ProjectsPage() {
+export default function Projects({ locale }: LocaleProps) {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   // Add this state near selectedIndex
@@ -97,13 +101,13 @@ export default function ProjectsPage() {
   }, [selectedIndex, filteredProjects.length]);
 
   return (
-    <section id="projects" className="min-h-screen py-20 px-6 lg:px-12">
+    <section id="projects" className="min-h-screen py-8 px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6 }}
           className="text-4xl font-bold text-center mb-8"
         >
