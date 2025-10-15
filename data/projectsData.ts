@@ -1,0 +1,55 @@
+export const categories = ["all", "web", "mobile", "ai", "fun"];
+
+// Example projects
+export const projects = [
+  {
+    title: "E-Commerce Platform",
+    description: "Fullstack web app with Next.js, Supabase & Stripe.",
+    image: "/projects/file.svg",
+    link: "https://yourproject1.com",
+    source: "https://github.com/yourrepo1",
+    category: "web",
+    tech: ["Next.js", "Supabase", "Stripe", "TailwindCSS"],
+    span: "lg:col-span-2 lg:row-span-2",
+  },
+  {
+    title: "Mobile Game App",
+    description: "React Native multiplayer game with Supabase backend.",
+    image: "/projects/file.svg",
+    link: "https://yourproject2.com",
+    source: "https://github.com/yourrepo2",
+    category: "mobile",
+    tech: ["React Native", "Expo", "Supabase"],
+    span: "lg:col-span-1 lg:row-span-1",
+  },
+  {
+    title: "Portfolio Website",
+    description: "Minimal personal portfolio built with Next.js & Tailwind.",
+    image: "/projects/file.svg",
+    link: "https://yourportfolio.com",
+    source: "https://github.com/yourrepo3",
+    category: "web",
+    tech: ["Next.js", "TailwindCSS", "Framer Motion"],
+    span: "lg:col-span-1 lg:row-span-1",
+  },
+  {
+    title: "AI Chatbot",
+    description: "Custom AI assistant using OpenAI & LangChain.",
+    image: "/projects/file.svg",
+    link: "https://yourproject3.com",
+    source: "https://github.com/yourrepo4",
+    category: "ai",
+    tech: ["Next.js", "LangChain", "OpenAI API"],
+    span: "lg:col-span-2 lg:row-span-1",
+  },
+  {
+    title: "Analytics Dashboard",
+    description: "Beautiful dashboard with Next.js & D3.js.",
+    image: "/projects/file.svg",
+    link: "https://yourproject4.com",
+    source: "https://github.com/yourrepo5",
+    category: "fun",
+    tech: ["Next.js", "D3.js", "TailwindCSS"],
+    span: "lg:col-span-1 lg:row-span-2",
+  },
+];

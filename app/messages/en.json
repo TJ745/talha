@@ -64,6 +64,16 @@
     "Back-End": "Back-End",
     "Database": "Database"
   },
+  "Projects": {
+    "title": "PROJECTS",
+    "categories": {
+      "all": "All",
+      "web": "Web",
+      "mobile": "Mobile",
+      "ai": "AI",
+      "fun": "For Fun"
+    }
+  },
   "Contact": {
     "title": "Let's Work Together",
     "subtitle1": "Looking for a passionate Fullstack Developer who can build clean,        responsive, and user-friendly web and mobile applications — from        frontend design to backend architecture?",

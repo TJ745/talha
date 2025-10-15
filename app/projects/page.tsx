@@ -1,6 +1,8 @@
 "use client";
 
+import { projects, categories } from "@/data/projectsData";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -9,70 +11,17 @@ interface LocaleProps {
   locale: "en" | "ar";
 }
 
-const categories = ["All", "Web", "Mobile", "AI", "Dashboard"];
-
-// Example projects
-const projects = [
-  {
-    title: "E-Commerce Platform",
-    description: "Fullstack web app with Next.js, Supabase & Stripe.",
-    image: "/projects/file.svg",
-    link: "https://yourproject1.com",
-    source: "https://github.com/yourrepo1",
-    category: "Web",
-    tech: ["Next.js", "Supabase", "Stripe", "TailwindCSS"],
-    span: "lg:col-span-2 lg:row-span-2",
-  },
-  {
-    title: "Mobile Game App",
-    description: "React Native multiplayer game with Supabase backend.",
-    image: "/projects/file.svg",
-    link: "https://yourproject2.com",
-    source: "https://github.com/yourrepo2",
-    category: "Mobile",
-    tech: ["React Native", "Expo", "Supabase"],
-    span: "lg:col-span-1 lg:row-span-1",
-  },
-  {
-    title: "Portfolio Website",
-    description: "Minimal personal portfolio built with Next.js & Tailwind.",
-    image: "/projects/file.svg",
-    link: "https://yourportfolio.com",
-    source: "https://github.com/yourrepo3",
-    category: "Web",
-    tech: ["Next.js", "TailwindCSS", "Framer Motion"],
-    span: "lg:col-span-1 lg:row-span-1",
-  },
-  {
-    title: "AI Chatbot",
-    description: "Custom AI assistant using OpenAI & LangChain.",
-    image: "/projects/file.svg",
-    link: "https://yourproject3.com",
-    source: "https://github.com/yourrepo4",
-    category: "AI",
-    tech: ["Next.js", "LangChain", "OpenAI API"],
-    span: "lg:col-span-2 lg:row-span-1",
-  },
-  {
-    title: "Analytics Dashboard",
-    description: "Beautiful dashboard with Next.js & D3.js.",
-    image: "/projects/file.svg",
-    link: "https://yourproject4.com",
-    source: "https://github.com/yourrepo5",
-    category: "Dashboard",
-    tech: ["Next.js", "D3.js", "TailwindCSS"],
-    span: "lg:col-span-1 lg:row-span-2",
-  },
-];
-
 export default function Projects({ locale }: LocaleProps) {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const t = useTranslations("Projects");
+
+  const [activeCategory, setActiveCategory] = useState("all");
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
   // Add this state near selectedIndex
   const [direction, setDirection] = useState<1 | -1>(1);
 
   const filteredProjects =
-    activeCategory === "All"
+    activeCategory === "all"
       ? projects
       : projects.filter((p) => p.category === activeCategory);
 
@@ -104,32 +53,32 @@ export default function Projects({ locale }: LocaleProps) {
     <section id="projects" className="min-h-screen py-8 px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
-        <motion.h2
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-center mb-8"
+          className="text-4xl font-bold text-center mb-8 font-montserrat uppercase"
         >
-          My Projects
-        </motion.h2>
+          {t("title")}
+        </motion.h1>
 
         {/* Filter Bar */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((cat) => (
+          {categories.map((cat, index) => (
             <button
-              key={cat}
+              key={index}
               onClick={() => {
                 setActiveCategory(cat);
                 setSelectedIndex(null);
               }}
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
                 activeCategory === cat
-                  ? "bg-gray-800 text-white shadow-lg scale-105"
-                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                  ? "bg-black text-white dark:bg-gray-100 dark:text-black"
+                  : "bg-white text-black border-black hover:bg-black hover:text-white dark:bg-black dark:text-white border dark:border-white dark:hover:bg-white dark:hover:text-black"
               }`}
             >
-              {cat}
+              {t(`categories.${cat}`)}
             </button>
           ))}
         </div>
