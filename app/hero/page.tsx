@@ -8,15 +8,11 @@ import {
   FaArrowLeftLong,
   FaArrowRightLong,
   FaDiscord,
-  FaFacebook,
   FaGithub,
   FaInstagram,
   FaLinkedinIn,
   FaSnapchat,
-  FaTelegram,
-  FaWhatsapp,
   FaX,
-  FaYoutube,
 } from "react-icons/fa6";
 
 interface HeroProps {
@@ -36,9 +32,13 @@ function Hero({ locale }: HeroProps) {
         speed={0.5}
       />
       <div className="relative flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 w-full">
-        <h1 className="text-4xl font-bold tracking-tight ">{t("greeting")}</h1>
-        <h1 className="text-6xl font-bold tracking-tight">{t("name")}</h1>
-        <span className="mt-6 bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-4xl tracking-tight text-transparent">
+        <h1 className="text-4xl font-bold tracking-tight mb-2">
+          {t("greeting")}
+        </h1>
+        <h1 className="text-6xl font-bold tracking-tight font-montserrat">
+          {t("name")}
+        </h1>
+        <span className="mt-6 bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-4xl tracking-tight text-transparent font-montserrat">
           {t("role")}
         </span>
         <Typewriter
@@ -51,7 +51,7 @@ function Hero({ locale }: HeroProps) {
         <div className="mt-12 relative z-10 flex gap-4 items-center justify-center">
           <Link
             href="#contact"
-            className="px-4 py-2 rounded-full border-2 dark:border-white border-black flex items-center"
+            className="px-4 py-2 rounded-full border-2 dark:border-white border-black flex items-center dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white"
           >
             {t("hireMe")}
             {locale === "ar" ? (
@@ -61,8 +61,8 @@ function Hero({ locale }: HeroProps) {
             )}
           </Link>
           <a
-            className="px-4 py-2 rounded-full bg-black text-white border-white border-2"
-            href="../resume/Talha-Jamil-CV.pdf"
+            className="px-4 py-2 rounded-full   border-2 dark:border-white border-black dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white"
+            href="../resume/Talha_Jamil_Fullstack_Developer.pdf"
             download
           >
             {t("downloadCV")}

@@ -11,36 +11,36 @@ import {
 
 export const education = [
   {
-    degree: "Masters in Information Technology",
-    school: "The University of Lahore - Pakistan",
-    period: "2012 - 2015",
+    degree: "masterDegree",
+    school: "masterSchool",
+    period: "masterPeriod",
     icon: RiGraduationCapFill, // ✅ store component, not JSX
   },
   {
-    degree: "Bachelors in Commerce",
-    school: "Elite College of Commerce - Pakistan",
-    period: "2009 - 2011",
+    degree: "bachelorDegree",
+    school: "bachelorSchool",
+    period: "bachelorPeriod",
     icon: RiGraduationCapFill,
   },
 ];
 
 export const experience = [
   {
-    role: "IT Administration",
-    company: "Integrated Contracting Company - Riyadh",
-    period: "2018 - Present",
+    role: "role2018",
+    company: "company2018",
+    period: "period2018",
     icon: RiSparklingFill,
   },
   {
-    role: "System Administration",
-    company: "Morganti - Riyadh",
-    period: "2017 - 2018",
+    role: "role2017",
+    company: "company2017",
+    period: "period2017",
     icon: RiSparklingFill,
   },
   {
-    role: "BMS Operator",
-    company: "Dar Al Arkan - Riyadh",
-    period: "2016 - 2017",
+    role: "role2016",
+    company: "company2016",
+    period: "period2016",
     icon: RiSparklingFill,
   },
 ];

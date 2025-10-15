@@ -4,13 +4,10 @@ import React from "react";
 import {
   FaClock,
   FaDiscord,
-  FaFacebookF,
   FaGithub,
   FaInstagram,
   FaLinkedinIn,
-  FaPaperPlane,
   FaSnapchat,
-  FaTiktok,
   FaX,
 } from "react-icons/fa6";
 import { motion } from "motion/react";
@@ -65,7 +62,7 @@ function Contact({ locale }: ContactProps) {
             transition={{ duration: 0.6 }}
             viewport={{ once: false }}
           >
-            <h2 className="text-2xl font-semibold mb-6">Contact Details</h2>
+            <h2 className="text-2xl font-semibold mb-6">{t("contact")}</h2>
             <p className="mb-4">
               <strong>{t("location")}</strong>
               <br />
@@ -173,13 +170,10 @@ function Contact({ locale }: ContactProps) {
             </div>
             <div className="w-full border dark:border-white p-4 rounded-2xl">
               <div className="flex items-center mb-2">
-                <FaClock className="inline-block mr-2 text-xl text-gray-800 dark:text-white" />
-                <h1>Availability</h1>
+                <FaClock className="inline-block text-xl text-gray-800 dark:text-white" />
+                <h1 className="ml-2 mr-2">{t("availability")}</h1>
               </div>
-              <p>
-                I response within 24 hours. Open to freelance opportunities and
-                collaborations.
-              </p>
+              <p>{t("available")}</p>
             </div>
           </motion.div>
         </div>

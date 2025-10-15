@@ -2,6 +2,21 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  --font-montserrat: var(--font-montserrat), sans-serif;
+  --font-sans: var(--font-open-sans), system-ui, sans-serif;
+}
+
+@layer utilities {
+  .font-montserrat {
+    font-family: var(--font-montserrat);
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }

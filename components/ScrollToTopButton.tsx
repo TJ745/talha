@@ -40,8 +40,7 @@ export default function ScrollToTopButton({ scrollRef }: Props) {
             transition={{ duration: 0.4, ease: "easeOut" }}
             whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-red-900 text-white p-3 rounded-xl w-12 h-12 flex items-center justify-center 
-              shadow-lg focus:outline-none hover:bg-red-950 cursor-pointer"
+            className="bg-black text-white dark:bg-white dark:text-black p-3 rounded-xl w-12 h-12 flex items-center justify-center cursor-pointer"
           >
             <FaArrowUp />
           </motion.button>

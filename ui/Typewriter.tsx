@@ -16,7 +16,7 @@ export default function Typewriter({
   speed = 120,
   deleteSpeed = 80,
   delayBetween = 1500,
-  className = "mt-6 text-2xl text-[#AAAAAA]",
+  className = "mt-6 text-2xl dark:text-[#AAAAAA] text-black font-sans",
 }: TypewriterProps) {
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);

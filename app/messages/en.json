@@ -26,7 +26,7 @@
     ]
   },
   "About": {
-    "title": "About Me",
+    "title": "ABOUT ME",
     "subtitle": "What I do",
     "description": [
       "I’m Talha Jamil, a Fullstack Developer who loves crafting digital experiences that feel smooth, modern, and engaging. ",
@@ -38,15 +38,44 @@
     ],
     "closing": "Best Regards,"
   },
+  "Resume": {
+    "Education": "Education",
+    "Experience": "Experience",
+    "Skills": "Skills",
+
+    "masterDegree": "Masters in Information Technology",
+    "masterSchool": "The University of Lahore - Pakistan",
+    "masterPeriod": "2012 - 2015",
+    "bachelorDegree": "Bachelors in Commerce",
+    "bachelorSchool": "Elite College of Commerce - Pakistan",
+    "bachelorPeriod": "2009 - 2011",
+
+    "role2018": "IT Administration",
+    "company2018": "Integrated Contracting Company - Riyadh",
+    "period2018": "2018 - Present",
+    "role2017": "System Administration",
+    "company2017": "Morganti - Riyadh",
+    "period2017": "2017 - 2018",
+    "role2016": "BMS Operator",
+    "company2016": "Dar Al Arkan - Riyadh",
+    "period2016": "2016 - 2017",
+
+    "Front-End": "Front-End",
+    "Back-End": "Back-End",
+    "Database": "Database"
+  },
   "Contact": {
     "title": "Let's Work Together",
     "subtitle1": "Looking for a passionate Fullstack Developer who can build clean,        responsive, and user-friendly web and mobile applications — from        frontend design to backend architecture?",
     "subtitle2": "Whether it’s freelance work, collaboration, or a full-time role — I’d love to connect and help bring your ideas to life!",
+    "contact": "Contact Details",
     "phone": "Phone:",
     "location": "Location:",
     "locationValue": "Riyadh, KSA",
     "email": "Email:",
-    "follow": "Follow Me"
+    "follow": "Follow Me",
+    "availability": "Availability",
+    "available": "I response within 24 hours. Open to freelance opportunities and collaborations."
   },
   "Footer": {
     "title": "Talha Jamil. All rights reserved.",
