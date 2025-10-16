@@ -50,7 +50,7 @@
     "bachelorSchool": "Elite College of Commerce - Pakistan",
     "bachelorPeriod": "2009 - 2011",
 
-    "role2018": "IT Administration",
+    "role2018": "Fullstack Developer / IT Administration",
     "company2018": "Integrated Contracting Company - Riyadh",
     "period2018": "2018 - Present",
     "role2017": "System Administration",
@@ -62,7 +62,8 @@
 
     "Front-End": "Front-End",
     "Back-End": "Back-End",
-    "Database": "Database"
+    "Tools": "Tools",
+    "Mobile": "Mobile"
   },
   "Projects": {
     "title": "PROJECTS",

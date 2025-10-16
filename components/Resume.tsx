@@ -8,6 +8,8 @@ import {
   frontendSkills,
   backendSkills,
   sectionIcons,
+  toolsSkills,
+  mobileSkills,
 } from "@/data/aboutData";
 import { useTranslations } from "next-intl";
 
@@ -68,6 +70,8 @@ export default function Resume() {
     personal: PersonalIcon,
     frontend: FrontendIcon,
     backend: BackendIcon,
+    tools: ToolsIcon,
+    mobile: MobileIcon,
   } = sectionIcons;
   const t = useTranslations("Resume");
 
@@ -205,6 +209,7 @@ export default function Resume() {
             <div className="grid grid-cols-2 gap-4">
               {frontendSkills.map((s, i) => {
                 const Icon = s.icon;
+                const color = s.color ? { color: s.color } : {};
                 return (
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
@@ -214,10 +219,9 @@ export default function Resume() {
                     key={i}
                     className="flex items-center gap-2"
                   >
-                    <Icon className="text-lg text-green-300" />
+                    <Icon className="text-lg " style={color} />
                     <div>
                       <p className="font-medium">{s.title}</p>
-                      <span className="text-xs text-gray-300">{s.level}</span>
                     </div>
                   </motion.div>
                 );
@@ -234,6 +238,7 @@ export default function Resume() {
             <div className="grid grid-cols-2 gap-4">
               {backendSkills.map((s, i) => {
                 const Icon = s.icon;
+                const color = s.color ? { color: s.color } : {};
                 return (
                   <motion.div
                     initial={{ opacity: 0, x: 20 }}
@@ -243,10 +248,67 @@ export default function Resume() {
                     key={i}
                     className="flex items-center gap-2"
                   >
-                    <Icon className="text-lg text-green-300" />
+                    <Icon className="text-lg " style={color} />
                     <div>
                       <p className="font-medium">{s.title}</p>
-                      <span className="text-xs text-gray-300">{s.level}</span>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Mobile */}
+          <div className="text-black dark:text-white border border-black dark:border-white rounded-lg p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <MobileIcon className="text-2xl" />
+              <h4 className="text-lg font-semibold">{t("Mobile")}</h4>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {mobileSkills.map((s, i) => {
+                const Icon = s.icon;
+                const color = s.color ? { color: s.color } : {};
+                return (
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    key={i}
+                    className="flex items-center gap-2"
+                  >
+                    <Icon className="text-lg " style={color} />
+                    <div>
+                      <p className="font-medium">{s.title}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Tools */}
+          <div className="text-black dark:text-white border border-black dark:border-white rounded-lg p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <ToolsIcon className="text-2xl" />
+              <h4 className="text-lg font-semibold">{t("Tools")}</h4>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {toolsSkills.map((s, i) => {
+                const Icon = s.icon;
+                const color = s.color ? { color: s.color } : {};
+                return (
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    key={i}
+                    className="flex items-center gap-2"
+                  >
+                    <Icon className="text-lg " style={color} />
+                    <div>
+                      <p className="font-medium">{s.title}</p>
                     </div>
                   </motion.div>
                 );
