@@ -1,10 +1,13 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { projects } from "@/data/projectsData";
+
+type Project = (typeof projects)[number];
 
 type ProjectCardProps = {
-  filteredProjects: any[];
-  onProjectClick: (project: any) => void;
+  filteredProjects: Project[];
+  onProjectClick: (project: Project) => void;
 };
 
 function ProjectCard({ filteredProjects, onProjectClick }: ProjectCardProps) {

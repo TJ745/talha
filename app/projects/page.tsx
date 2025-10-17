@@ -11,14 +11,16 @@ interface LocaleProps {
   locale: "en" | "ar";
 }
 
+type Project = (typeof projects)[number];
+
 export default function Projects({ locale }: LocaleProps) {
   const t = useTranslations("Projects");
 
   const [activeCategory, setActiveCategory] = useState("all");
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleProjectClick = (project: any) => {
+  const handleProjectClick = (project: Project) => {
     setSelectedProject(project);
     setIsOpen(true);
   };

@@ -1,8 +1,21 @@
 import { FaTimes } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
+import { projects } from "@/data/projectsData";
 
-export default function ProjectModal({ isOpen, onClose, project }: any) {
+type Project = (typeof projects)[number];
+
+interface ProjectModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  project: Project | null;
+}
+
+export default function ProjectModal({
+  isOpen,
+  onClose,
+  project,
+}: ProjectModalProps) {
   if (!isOpen || !project) return null;
 
   return (
