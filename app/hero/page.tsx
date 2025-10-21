@@ -35,10 +35,10 @@ function Hero({ locale }: HeroProps) {
         <h1 className="text-4xl font-bold tracking-tight mb-2">
           {t("greeting")}
         </h1>
-        <h1 className="text-6xl font-bold tracking-tight font-montserrat">
+        <h1 className="md:text-6xl text-4xl font-bold tracking-tight font-montserrat">
           {t("name")}
         </h1>
-        <span className="mt-6 bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-4xl tracking-tight text-transparent font-montserrat">
+        <span className="mt-6 bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text md:text-4xl text-3xl tracking-tight text-transparent font-montserrat">
           {t("role")}
         </span>
         <Typewriter

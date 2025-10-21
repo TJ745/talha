@@ -103,7 +103,7 @@ export default function ClientLayout({
             initial={{ opacity: 0, scale: 0.75 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative top-0 h-[100dvh] w-screen border-[24px] border-gray-300 dark:border-gray-700 overflow-hidden shadow-2xl"
+            className="relative top-0 h-[100dvh] w-screen md:border-[24px] border-[16px] border-gray-300 dark:border-gray-700 overflow-hidden shadow-2xl"
             dir={locale === "ar" ? "rtl" : "ltr"}
           >
             <NextIntlClientProvider locale={locale} messages={messages}>
